@@ -1,8 +1,11 @@
 mod structs;
+mod database;
 
-use axum::{Json, Router, response::IntoResponse, routing::get};
+use axum::{extract::State, http::StatusCode, response::IntoResponse, Json, Router};
+use axum::routing::get;
 use serde_json::json;
-use structs::structs::Address;
+use structs::Adress::Address;
+use structs::login_incoming::LoginIncoming;
 //address struct to hold ip and port
 
 #[tokio::main]
@@ -26,6 +29,14 @@ async fn root() -> impl IntoResponse {
         "message": "Hello, World!"
     }))
 }
-async fn Login()-> impl IntoResponse {
-
+async fn Login(Json(body):Json<LoginIncoming>)-> Result<impl IntoResponse, Json<serde_json::Value>> {
+    let login_data = LoginIncoming {
+        username: body.username,
+        password: body.password,
+        csrf_token: body.csrf_token,
+    };
+    // Process the login data
+    Ok(Json(json!({
+        "message": "Login successful"
+    })))
 }
