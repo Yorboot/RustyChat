@@ -1,3 +1,4 @@
 #[path = "Adress.rs"]
-pub mod structs;
-mod LoginIncoming;
+pub mod Adress;
+#[path= "LoginIncoming.rs"]
+pub mod login_incoming;
