@@ -1,10 +1,10 @@
+mod structs;
+
 use axum::{Json, Router, response::IntoResponse, routing::get};
 use serde_json::json;
+use structs::address::Address;
 //address struct to hold ip and port
-struct Address{
-    ip: String,
-    port: u16,
-}
+
 #[tokio::main]
 async fn main(){
     let address = Address{
@@ -25,4 +25,7 @@ async fn root() -> impl IntoResponse {
     Json(json!({
         "message": "Hello, World!"
     }))
+}
+async fn Login()-> impl IntoResponse {
+
 }
