@@ -2,7 +2,7 @@ mod structs;
 
 use axum::{Json, Router, response::IntoResponse, routing::get};
 use serde_json::json;
-use structs::address::Address;
+use structs::structs::Address;
 //address struct to hold ip and port
 
 #[tokio::main]

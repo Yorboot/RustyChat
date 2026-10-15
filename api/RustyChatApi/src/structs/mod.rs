@@ -1,3 +1,3 @@
 #[path = "Adress.rs"]
-pub mod address;
+pub mod structs;
 mod LoginIncoming;
